@@ -1,29 +1,29 @@
 var work = {
     "jobs": [{
-        "employer": "Goldwyn Partners Group AG",
-        "title": "Web Developer",
+        "employer": "Seaworld",
+        "title": "Dolphin Rider",
         "dates": "2009 - 2013",
-        "location": "Baar, Canton Zug",
-        "description": "I was responsible for the company websites."
+        "location": "Orlando, USA",
+        "description": "Swim around all day. Was quite a depressing job."
     }, {
-        "employer": "Bosshard und Partner",
-        "title": "IT Supporter",
+        "employer": "Google",
+        "title": "Janitor",
         "dates": "2013 - current",
-        "location": "Zurich City",
-        "description": "I do first and second level support."
+        "location": "Zurich, Switzerland",
+        "description": "I keep the place clean and tidy."
     }]
 };
 
 var projects = {
     "projects": [{
-        "title": "KIT",
-        "dates": "2010",
-        "description": "A tool to send automated emails to clients.",
+        "title": "Google Search",
+        "dates": "1998",
+        "description": "The main purpose of Google Search is to hunt for text in publicly accessible documents offered by web servers, as opposed to other data, such as images or data contained in databases.",
         "images": ["images/197x148.gif", "images/197x148.gif"]
     }, {
-        "title": "Homepage",
-        "dates": "2016",
-        "description": "Created a wordpress website for my mothers business.",
+        "title": "eBay",
+        "dates": "1995",
+        "description": "An online auction and shopping website in which people and businesses buy and sell a broad variety of goods and services worldwide.",
         "images": ["images/197x148.gif", "images/197x148.gif"]
     }]
 };
@@ -38,24 +38,24 @@ var bio = {
         "email": "bud@spencer.com",
         "github": "github.com/budspencer",
         "twitter": "twitter.com/budspencer",
-        "location": "Winterthur"
+        "location": "Winterthur, Switzerland"
     },
     "skills": ["jQuery", "CSS3", "HTML5", "Gymnastics"]
 };
 
 var education = {
     "schools": [{
-        "name": "The Lady Elizabeth School",
-        "location": "Javea, Spain",
+        "name": "Hogwarts school of witchcraft and wizardry",
+        "location": "Scotland",
         "dates": "2002 - 2006",
-        "url": "www.theladyelizabethschool.com",
+        "url": "www.hogwarts.com",
         "majors": ["GCSE", "A'Level"]
     }, {
-        "name": "University of Zurich",
-        "location": "Zurich, Switzerland",
+        "name": "Massachusetts Institute of Technology",
+        "location": "Cambridge, Massachusetts",
         "dates": "2006 - 2012",
-        "url": "www.unizh.ch",
-        "majors": ["Bachelor of Linguistics", "Master of Disaster"]
+        "url": "www.mit.edu",
+        "majors": ["Master of Disaster"]
     }],
     "onlineCourses": [{
         "title": "Frontend Nanodegree",
@@ -77,6 +77,16 @@ bio.display = function() {
     var pic = HTMLbioPic.replace("%data%", bio.biopic);
     $("#header").prepend(role);
     $("#header").prepend(name);
+    var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+    var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+    var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+    var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+    var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+    $('#topContacts:last').append(formattedMobile);
+    $('#topContacts:last').append(formattedEmail);
+    $('#topContacts:last').append(formattedTwitter);
+    $('#topContacts:last').append(formattedGithub);
+    $('#topContacts:last').append(formattedLocation);
     $("#header").append(pic);
 
     if (bio.skills.length > 0) {

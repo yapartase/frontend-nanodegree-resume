@@ -99,10 +99,10 @@ a {
 .flex-box {
     display: -webkit-flex;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 10px;
+    justify-content: space-between;
+    padding: 10px 0 10px 0;
 }
 .flex-column {
     display: flex;
