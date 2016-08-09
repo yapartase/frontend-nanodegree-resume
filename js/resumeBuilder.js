@@ -124,15 +124,4 @@ projects.display = function() {
 
 projects.display();
 
-//$("#main").append(internationalizeButton);
-
-//function inName(name) {
-//    var nameArray = name.split(" ");
-//    var firstName = nameArray[0];
-//    var lastName = nameArray[1].toUpperCase();
-//    return firstName + " " + lastName;
-//}
-
-//inName();
-
-$(document).click(function(loc) {console.log(loc.pageX, loc.pageY); });
+$("#mapDiv").append(googleMap);
