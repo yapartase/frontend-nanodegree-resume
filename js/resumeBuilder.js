@@ -88,18 +88,13 @@ bio.display = function() {
     $('#topContacts:last').append(formattedGithub);
     $('#topContacts:last').append(formattedLocation);
     $("#header").append(pic);
+    $("#header").append(HTMLskillsStart);
 
-    if (bio.skills.length > 0) {
-        $("#header").append(HTMLskillsStart);
-        var skill = HTMLskills.replace("%data%", bio.skills[0]);
-        $("#skills").append(skill);
-        skill = HTMLskills.replace("%data%", bio.skills[1]);
-        $("#skills").append(skill);
-        skill = HTMLskills.replace("%data%", bio.skills[2]);
-        $("#skills").append(skill);
-        skill = HTMLskills.replace("%data%", bio.skills[3]);
-        $("#skills").append(skill);
-    }
+    bio.skills.forEach(function(skill) {
+        var formattedSkill = HTMLskills.replace("%data%", skill);
+        $("#skills").append(formattedSkill);
+    })
+
 }
 
 bio.display();
