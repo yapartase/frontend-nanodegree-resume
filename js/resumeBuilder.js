@@ -88,8 +88,8 @@ bio.display = function() {
     $('#topContacts:last').append(formattedGithub);
     $('#topContacts:last').append(formattedLocation);
     $("#header").append(pic);
-    $("#header").append(HTMLskillsStart);
 
+    $("#header").append(HTMLskillsStart);
     bio.skills.forEach(function(skill) {
         var formattedSkill = HTMLskills.replace("%data%", skill);
         $("#skills").append(formattedSkill);
@@ -132,31 +132,34 @@ projects.display = function() {
         project.images.forEach(function(image) {
             var formattedImage = HTMLprojectImage.replace("%data%", image);
             $(".project-entry:last").append(formattedImage);
-        })
+        });
 
-    })
+    });
 
-}
+};
 
 projects.display();
 
 education.display = function() {
-    for (educations in education.schools) {
+
+    education.schools.forEach(function(school) {
         $("#education").append(HTMLschoolStart);
-        var formattedName = HTMLschoolName.replace("%data%", education.schools[educations].name);
-        var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[educations].url);
+        var formattedName = HTMLschoolName.replace("%data%", school.name);
+        var formattedDegree = HTMLschoolDegree.replace("%data%", school.url);
         $(".education-entry:last").append(formattedName + formattedDegree);
-        var formattedDates = HTMLschoolDates.replace("%data%", education.schools[educations].dates);
+        var formattedDates = HTMLschoolDates.replace("%data%", school.dates);
         $(".education-entry:last").append(formattedDates);
-        var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[educations].location);
+        var formattedLocation = HTMLschoolLocation.replace("%data%", school.location);
         $(".education-entry:last").append(formattedLocation);
 
-        for (major in education.schools[educations].majors) {
-            var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[educations].majors[major]);
+        school.majors.forEach(function(major) {
+            var formattedMajor = HTMLschoolMajor.replace("%data%", major);
             $(".education-entry:last").append(formattedMajor);
-        }
-    }
-}
+        });
+
+    });
+
+};
 
 education.display();
 
