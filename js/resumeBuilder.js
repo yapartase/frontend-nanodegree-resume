@@ -1,33 +1,3 @@
-var work = {
-    'jobs': [{
-        'employer': 'Seaworld',
-        'title': 'Dolphin Rider',
-        'dates': '2009 - 2013',
-        'location': 'Orlando, USA',
-        'description': 'Swim around all day. Was quite a depressing job.'
-    }, {
-        'employer': 'Google',
-        'title': 'Janitor',
-        'dates': '2013 - current',
-        'location': 'Zurich, Switzerland',
-        'description': 'I keep the place clean and tidy.'
-    }]
-};
-
-var projects = {
-    'projects': [{
-        'title': 'Google Search',
-        'dates': '1998',
-        'description': 'The main purpose of Google Search is to hunt for text in publicly accessible documents offered by web servers, as opposed to other data, such as images or data contained in databases.',
-        'images': ['images/197x148.gif', 'images/197x148.gif']
-    }, {
-        'title': 'eBay',
-        'dates': '1995',
-        'description': 'An online auction and shopping website in which people and businesses buy and sell a broad variety of goods and services worldwide.',
-        'images': ['images/197x148.gif', 'images/197x148.gif']
-    }]
-};
-
 var bio = {
     'name': 'Bud Spencer',
     'role': 'Web Developer',
@@ -62,13 +32,43 @@ var education = {
     'onlineCourses': [{
         'title': 'Frontend Nanodegree',
         'school': 'Udacity',
-        'dates': '2016 - current',
+        'dates': 'July 2016 - current',
         'url': 'www.udacity.com'
     }, {
         'title': 'InDesign',
         'school': 'Lynda',
-        'dates': '2012',
+        'dates': 'January 2012 - February 2012',
         'url': 'http://www.lynda.com'
+    }]
+};
+
+var work = {
+    'jobs': [{
+        'employer': 'Seaworld',
+        'title': 'Dolphin Rider',
+        'location': 'Orlando, USA',
+        'dates': '2009 - 2013',
+        'description': 'Swim around all day. Was quite a depressing job.'
+    }, {
+        'employer': 'Google',
+        'title': 'Janitor',
+        'location': 'Zurich, Switzerland',
+        'dates': '2013 - current',
+        'description': 'I keep the place clean and tidy.'
+    }]
+};
+
+var projects = {
+    'projects': [{
+        'title': 'Google Search',
+        'dates': '1998',
+        'description': 'The main purpose of Google Search is to hunt for text in publicly accessible documents offered by web servers, as opposed to other data, such as images or data contained in databases.',
+        'images': ['images/197x148.gif', 'images/197x148.gif']
+    }, {
+        'title': 'eBay',
+        'dates': '1995',
+        'description': 'An online auction and shopping website in which people and businesses buy and sell a broad variety of goods and services worldwide.',
+        'images': ['images/197x148.gif', 'images/197x148.gif']
     }]
 };
 
@@ -76,6 +76,7 @@ bio.display = function() {
     var name = HTMLheaderName.replace('%data%', bio.name);
     var role = HTMLheaderRole.replace('%data%', bio.role);
     var pic = HTMLbioPic.replace('%data%', bio.biopic);
+    var welcomeMessage = HTMLwelcomeMsg.replace('%data%', bio.welcomeMessage);
     $('#header').prepend(role);
     $('#header').prepend(name);
     var formattedMobile = HTMLmobile.replace('%data%', bio.contacts.mobile);
@@ -89,6 +90,7 @@ bio.display = function() {
     $('#topContacts:last').append(formattedGithub);
     $('#topContacts:last').append(formattedLocation);
     $('#header').append(pic);
+    $('#header').append(welcomeMessage);
     $('#header').append(HTMLskillsStart);
 
     bio.skills.forEach(function(skill) {
