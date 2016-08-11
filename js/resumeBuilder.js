@@ -92,7 +92,7 @@ bio.display = function() {
     $('#header').append(pic);
     $('#header').append(welcomeMessage);
     $('#header').append(HTMLskillsStart);
-
+    $('#footerContacts').append(formattedMobile + formattedEmail + formattedTwitter + formattedGithub);
     bio.skills.forEach(function(skill) {
         var formattedSkill = HTMLskills.replace('%data%', skill);
         $('#skills').append(formattedSkill);
@@ -151,6 +151,19 @@ education.display = function() {
             var formattedMajor = HTMLschoolMajor.replace('%data%', major);
             $('.education-entry:last').append(formattedMajor);
         });
+    });
+
+    $('#education').append(HTMLonlineClasses);
+
+    education.onlineCourses.forEach(function(course) {
+       $('#education').append(HTMLschoolStart);  
+        var formattedTitle = HTMLonlineTitle.replace('%data%', course.title);
+        var formattedSchool = HTMLonlineSchool.replace('%data%', course.school);
+        $('.education-entry:last').append(formattedTitle + formattedSchool);
+        var formattedDate = HTMLonlineDates.replace('%data%', course.dates);
+        $('.education-entry:last').append(formattedDate);
+        var formattedURL = HTMLonlineURL.replace('%data%', course.url);
+        $('.education-entry:last').append(formattedURL);
     });
 };
 
